@@ -45,5 +45,54 @@
         app:layout_constraintHorizontal_bias="0.7" />
 
 
+    <LinearLayout
+        android:id="@+id/bottom_buttons_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/button_exercise"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="운동"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:backgroundTint="#9A948C"/>
+
+        <Button
+            android:id="@+id/button_analysis"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="분석"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:backgroundTint="#9A948C"/>
+
+        <Button
+            android:id="@+id/button_diet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="식단"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:backgroundTint="#9A948C"/>
+
+        <Button
+            android:id="@+id/button_my"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="MY"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:backgroundTint="#9A948C"/>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

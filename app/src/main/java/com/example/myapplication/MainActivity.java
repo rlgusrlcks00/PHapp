@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -15,6 +16,10 @@ public class MainActivity extends AppCompatActivity {
 
     //버튼변수선언
     private ImageButton menuButton, alarmButton, settingsButton;
+    private Button myButton;
+    private UserDAO mUserDao;
+
+
 
 
     @Override
@@ -22,10 +27,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+/*
+        UserDatabase database= Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "PH_db")
+                .fallbackToDestructiveMigration() //스키마 버전 변경 가능
+                .allowMainThreadQueries() //메인 스레드에서 DB에 IO를 가능하게 함
+                .build();
+        mUserDao=database.UserDao(); //인터페이스 객체 할당
+        //데이터 삽입
+        User user= new User();
+        user.setName("kichan");
+        user.setAge("25");
+        user.setPhoneNumber("01048559646");
+
+        mUserDao.setInsertUser(user);
+*/
+
         //버튼 종속성 설정
         menuButton = findViewById(R.id.menu_button);
         alarmButton = findViewById(R.id.alarm_button);
         settingsButton = findViewById(R.id.settings_button);
+        myButton=findViewById(R.id.button_my);
+
 
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +72,17 @@ public class MainActivity extends AppCompatActivity {
                 //설정화면 연결
             }
         });
+
+        myButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // MY버튼 기능 구현
+                Intent intent = new Intent(MainActivity.this, MyActivity.class);
+                startActivity(intent);
+                //MY화면 연결
+            }
+        });
+
 
 
     }
