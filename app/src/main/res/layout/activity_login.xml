@@ -42,6 +42,8 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:text="로그인"
+        android:backgroundTint="#FF914D"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_input" />
@@ -54,7 +56,18 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:text="회원가입"
+        android:backgroundTint="#FF914D"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:src="@drawable/ic_ph_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

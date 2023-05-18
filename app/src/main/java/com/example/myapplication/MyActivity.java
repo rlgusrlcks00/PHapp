@@ -84,15 +84,6 @@ public class MyActivity extends AppCompatActivity {
             }
         });
 
-        logoutButton.setOnClickListener(new View.OnClickListener() {//로그아웃
-            @Override
-            public void onClick(View v) {
-                sharedPreferencesHelper.setLoggedIn(false); // 로그인 상태 변경
-                Intent loginActivityIntent = new Intent(MyActivity.this, LoginActivity.class);
-                startActivity(loginActivityIntent);
-                finish();
-            }
-        });
 
 
     }

@@ -1,37 +1,30 @@
-/*
-import android.app.Dialog;
-import android.os.Bundle;
+package com.example.myapplication;
+
+import com.example.myapplication.LoginActivity;
 import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.content.Intent;
+import android.os.Handler;
 
-public class MainActivity extends AppCompatActivity {
 
-    private Dialog loadingDialog;
+
+public class LoadingActivity extends AppCompatActivity {
+    private static final int SPLASH_TIME_OUT = 2000; // 로딩 화면을 보여줄 시간 (2초)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_loading);
 
-        // 로딩 창 생성
-        loadingDialog = new Dialog(this);
-        loadingDialog.setContentView(R.layout.loading_dialog);
-        loadingDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        loadingDialog.setCancelable(false); // 로딩 창을 취소할 수 없도록 설정합니다.
+        // 일정 시간동안 로딩 화면을 보여준 후에 메인 화면으로 전환
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent i = new Intent(LoadingActivity.this, LoginActivity.class); // 메인화면으로 전환할 액티비티 설정
+                startActivity(i);
 
-        // 로딩 창 표시
-        showLoadingDialog();
-
-        // 로딩 창 숨기기
-        // 로딩이 완료된 후에 호출하세요.
-        hideLoadingDialog();
-    }
-
-    private void showLoadingDialog() {
-        loadingDialog.show();
-    }
-
-    private void hideLoadingDialog() {
-        loadingDialog.dismiss();
+                finish();
+            }
+        }, SPLASH_TIME_OUT);
     }
 }
-*/

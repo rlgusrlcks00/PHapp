@@ -3,7 +3,7 @@ import androidx.room.Room;
 
 import com.example.myapplication.User;
 import com.example.myapplication.UserDAO;
-import com.example.myapplication.UserDatabase;
+import com.example.myapplication.PHDatabase;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.EditText;
 import android.widget.Button;
@@ -32,9 +32,10 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText phoneNumberInput;
     private EditText weightInput;
     private EditText heightInput;
-    private EditText bmiInput;
+    private EditText addressInput;
     private Button signUpButton;
     private UserDAO mUserDao;
+
 
 
     @Override
@@ -42,7 +43,8 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        UserDatabase database= Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "PH_db")
+/*        PHDatabase database = PHDatabase.getInstance(getApplicationContext());*/
+        PHDatabase database= Room.databaseBuilder(getApplicationContext(), PHDatabase.class, "PH_db")
                 .fallbackToDestructiveMigration() //스키마 버전 변경 가능
                 .allowMainThreadQueries() //메인 스레드에서 DB에 IO를 가능하게 함
                 .build();
@@ -61,7 +63,7 @@ public class SignUpActivity extends AppCompatActivity {
         phoneNumberInput = findViewById(R.id.phone_number_input);
         weightInput = findViewById(R.id.weignt_input);
         heightInput = findViewById(R.id.height_input);
-        bmiInput = findViewById(R.id.BMI_input);
+        addressInput = findViewById(R.id.address_input);
         signUpButton = findViewById(R.id.sign_up_button);
 
 
@@ -76,7 +78,16 @@ public class SignUpActivity extends AppCompatActivity {
                 String phoneNumber = phoneNumberInput.getText().toString();
                 String weight = weightInput.getText().toString();
                 String height = heightInput.getText().toString();
-                String BMI = bmiInput.getText().toString();
+                String address = addressInput.getText().toString();
+
+                User user = new User();
+
+                if (!TextUtils.isEmpty(weight) && !TextUtils.isEmpty(height)) {
+                    double weightValue = Double.parseDouble(weight);
+                    double heightValue = Double.parseDouble(height) / 100.0; // cm to m
+                    double bmi = weightValue / (heightValue * heightValue);
+                    user.setBMI(String.valueOf(bmi));
+                }
 
                 if (validateInput(username, email, password, passwordConfirm)) {
 
@@ -89,7 +100,7 @@ public class SignUpActivity extends AppCompatActivity {
                     }
 
 
-                    User user = new User();
+
                     user.setName(username);
                     user.setEmail(email);
                     user.setPW(password);
@@ -98,7 +109,7 @@ public class SignUpActivity extends AppCompatActivity {
                     user.setPhoneNumber(phoneNumber);
                     user.setWeight(weight);
                     user.setHeight(height);
-                    user.setBMI(BMI);
+                    user.setAddress(address);
 
                     mUserDao.setInsertUser(user);
 

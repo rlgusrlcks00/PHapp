@@ -15,7 +15,7 @@ import android.content.Intent;
 public class MainActivity extends AppCompatActivity {
 
     //버튼변수선언
-    private ImageButton menuButton, alarmButton, settingsButton;
+    private ImageButton menuButton, alarmButton, settingsButton, communityButton;
     private Button myButton;
     private UserDAO mUserDao;
 
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         alarmButton = findViewById(R.id.alarm_button);
         settingsButton = findViewById(R.id.settings_button);
         myButton=findViewById(R.id.button_my);
+        communityButton=findViewById(R.id.communityBtn);
 
 
         menuButton.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +83,16 @@ public class MainActivity extends AppCompatActivity {
                 //MY화면 연결
             }
         });
+        communityButton.setOnClickListener(new View.OnClickListener() {
+            //community 버튼 기능
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(MainActivity.this, CommunityActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
 
 

@@ -22,8 +22,26 @@ public class User {
     private String weight;
     private String height;
     private String BMI;
+    private String muscle_mass;
+    private String body_fat_percentage;
 
-    //getter, setter how: Crrl+Insert
+    //getter, setter how: alt+Insert
+
+    public String getMuscle_mass() {
+        return muscle_mass;
+    }
+
+    public void setMuscle_mass(String muscle_mass) {
+        this.muscle_mass = muscle_mass;
+    }
+
+    public String getBody_fat_percentage() {
+        return body_fat_percentage;
+    }
+
+    public void setBody_fat_percentage(String body_fat_percentage) {
+        this.body_fat_percentage = body_fat_percentage;
+    }
 
     public int getUser_id() {
         return User_id;
@@ -113,4 +131,5 @@ public class User {
     public void setBMI(String BMI) {
         this.BMI = BMI;
     }
+
 }

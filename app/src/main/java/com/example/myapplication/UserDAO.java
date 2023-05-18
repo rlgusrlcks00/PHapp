@@ -6,6 +6,8 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+import androidx.lifecycle.LiveData;
+
 
 @Dao
 public interface UserDAO {
@@ -29,5 +31,12 @@ public interface UserDAO {
     //이메일이 중복되는지 검사하는 메소드
     @Query("SELECT * FROM User WHERE email = :email")
     User findByEmail(String email);
+
+    @Query("SELECT * FROM User WHERE User_id = :userId")
+    User getUserById(int userId);
+
+    @Query("SELECT * FROM User WHERE User_id = :userId")
+    LiveData<User> getUserByIdL(int userId);
+
 
 }

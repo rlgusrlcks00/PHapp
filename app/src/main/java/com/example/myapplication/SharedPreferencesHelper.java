@@ -47,4 +47,26 @@ public class SharedPreferencesHelper {
         return sharedPreferences.getBoolean("loggedIn", false);
     }
 
+    public void setLoggedInUserId(int userId) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("loggedInUserId", userId);
+        editor.apply();
+    }
+
+    public int getLoggedInUserId() {
+        return sharedPreferences.getInt("loggedInUserId", -1);
+    }
+
+
+    public void setUserId(int userId) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("USER_ID", userId);
+        editor.apply();
+    }
+
+    public int getUserId() {
+        return sharedPreferences.getInt("USER_ID", -1);
+    }
+
 }
+

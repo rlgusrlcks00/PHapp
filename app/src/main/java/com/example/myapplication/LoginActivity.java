@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.content.SharedPreferences;
+import android.content.Context;
+
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -20,14 +23,16 @@ public class LoginActivity extends AppCompatActivity {
 
     private SharedPreferencesHelper sharedPreferencesHelper;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        sharedPreferencesHelper = new SharedPreferencesHelper(this);
 
-        UserDatabase database = Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "PH_db")
+        sharedPreferencesHelper = new SharedPreferencesHelper(this);
+/*        PHDatabase database = PHDatabase.getInstance(getApplicationContext());*/
+        PHDatabase database = Room.databaseBuilder(getApplicationContext(), PHDatabase.class, "PH_db")
                 .fallbackToDestructiveMigration()
                 .allowMainThreadQueries()
                 .build();
@@ -49,22 +54,36 @@ public class LoginActivity extends AppCompatActivity {
                 String email = emailInput.getText().toString();
                 String password = passwordInput.getText().toString();
 
-                User user = mUserDao.getUserByEmail(email);
+                AppExecutors.getInstance().diskIO().execute(() -> {
+                    User user = mUserDao.getUserByEmail(email);
 
-                if (user != null && password.equals(user.getPW())) {
-                    // 로그인 성공 처리
-                    Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
-                    sharedPreferencesHelper.setLoggedIn(true); // 로그인 상태 저장
 
-                    Intent mainActivityIntent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(mainActivityIntent);
+                    // SharedPreferences에 이메일 정보 저장
+                    SharedPreferences sharedPreferences = getSharedPreferences("my_app_preferences", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("UserEmail", email);
+                    editor.apply();
 
-                    // LoginActivity 종료 (선택 사항)
-                    finish();
-                } else {
-                    // 로그인 실패 처리
-                    Toast.makeText(LoginActivity.this, "이메일 또는 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
-                }
+                    if (user != null && password.equals(user.getPW())) {
+                        // 로그인 성공 처리
+                        runOnUiThread(() -> {
+                            Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+                        });
+                        sharedPreferencesHelper.setLoggedIn(true); // 로그인 상태 저장
+
+                        Intent mainActivityIntent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(mainActivityIntent);
+
+                        // LoginActivity 종료 (선택 사항)
+                        finish();
+                    } else {
+                        // 로그인 실패 처리
+                        runOnUiThread(() -> {
+
+                            Toast.makeText(LoginActivity.this, "이메일 또는 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
+                        });
+                    }
+                });
             }
         });
 
