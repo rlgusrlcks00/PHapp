@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     //버튼변수선언
     private ImageButton menuButton, alarmButton, settingsButton, communityButton;
-    private Button myButton;
+    private Button myButton,analyButton;
     private UserDAO mUserDao;
 
 
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         settingsButton = findViewById(R.id.settings_button);
         myButton=findViewById(R.id.button_my);
         communityButton=findViewById(R.id.communityBtn);
+        analyButton=findViewById(R.id.button_analysis);
 
 
         menuButton.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +89,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(MainActivity.this, CommunityActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        analyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(MainActivity.this, GPTActivity.class);
                 startActivity(intent);
             }
         });
