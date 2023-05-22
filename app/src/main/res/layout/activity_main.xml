@@ -20,19 +20,21 @@
         android:layout_marginTop="20dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_menu"
-        app:layout_constraintEnd_toStartOf="@+id/alarm_button"
+        android:backgroundTint="#FF914D"
+        app:layout_constraintEnd_toStartOf="@+id/settings_button"
         app:layout_constraintTop_toTopOf="parent" />
 
 
 
-    <ImageButton
+<!--    <ImageButton
         android:id="@+id/alarm_button"
         android:layout_width="46dp"
         android:layout_height="74dp"
         android:layout_marginTop="20dp"
         android:src="@drawable/ic_alarm"
+        android:backgroundTint="#FF914D"
         app:layout_constraintEnd_toStartOf="@+id/settings_button"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />-->
 
     <ImageButton
         android:id="@+id/settings_button"
@@ -40,25 +42,72 @@
         android:layout_height="74dp"
         android:layout_marginTop="20dp"
         android:src="@drawable/ic_settings"
+        android:backgroundTint="#FF914D"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintHorizontal_bias="0.7" />
 
-    <ImageButton
-        android:id="@+id/communityBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_gravity="center_horizontal"
-        android:onClick="upload_post"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_ph_logo"
-        android:layout_margin="150dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+    android:id="@+id/communityBtn"
+    android:layout_width="190dp"
+    android:layout_height="120dp"
+    android:layout_weight="10"
+    android:text="자유게시판"
+    android:textStyle="bold"
+    android:textSize="25dp"
+    android:textColor="@color/black"
+    android:backgroundTint="#9A948C"
+    android:layout_marginTop="150dp"
+    android:layout_marginEnd="215dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_analysis"
+        android:layout_width="190dp"
+        android:layout_height="120dp"
+        android:layout_weight="10"
+        android:text="PH운동 추천"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:backgroundTint="#9A948C"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_my"
+        android:layout_width="190dp"
+        android:layout_height="120dp"
+        android:layout_weight="10"
+        android:text="인바디 등록"
+        android:textSize="25dp"
+
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:backgroundTint="#9A948C"
+        android:layout_marginTop="270dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/noticeBtn"
+        android:layout_width="190dp"
+        android:layout_height="120dp"
+        android:layout_weight="10"
+        android:text="공지사항"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:backgroundTint="#9A948C"
+        android:layout_marginTop="270dp"
+        android:layout_marginEnd="215dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 
 
@@ -67,48 +116,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="4"
+        android:weightSum="2"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
             android:id="@+id/button_exercise"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="운동"
+            android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:backgroundTint="#9A948C"/>
 
-        <Button
-            android:id="@+id/button_analysis"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="분석"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:backgroundTint="#9A948C"/>
+
 
         <Button
             android:id="@+id/button_diet"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="식단"
+            android:textSize="20dp"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:backgroundTint="#9A948C"/>
 
-        <Button
-            android:id="@+id/button_my"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="MY"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:backgroundTint="#9A948C"/>
+
     </LinearLayout>
 
 

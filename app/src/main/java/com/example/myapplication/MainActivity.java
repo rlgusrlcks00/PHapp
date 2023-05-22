@@ -15,8 +15,8 @@ import android.content.Intent;
 public class MainActivity extends AppCompatActivity {
 
     //버튼변수선언
-    private ImageButton menuButton, alarmButton, settingsButton, communityButton;
-    private Button myButton,analyButton;
+    private ImageButton menuButton, alarmButton, settingsButton;
+    private Button myButton,analyButton, communityButton;
     private UserDAO mUserDao;
 
 
@@ -44,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
         //버튼 종속성 설정
         menuButton = findViewById(R.id.menu_button);
-        alarmButton = findViewById(R.id.alarm_button);
         settingsButton = findViewById(R.id.settings_button);
         myButton=findViewById(R.id.button_my);
         communityButton=findViewById(R.id.communityBtn);
@@ -58,12 +57,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        alarmButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 알람 버튼 기능 구현
-            }
-        });
 
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override

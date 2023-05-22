@@ -73,6 +73,7 @@ public class SettingsActivity extends AppCompatActivity {
                 TextView genderTextView = findViewById(R.id.gender_text_view);
                 TextView ageTextView = findViewById(R.id.age_text_view);
                 TextView phoneNumberTextView = findViewById(R.id.phone_number_text_view);
+                TextView addressTextView = findViewById(R.id.address_text_view);
 
                 if (user != null) {
                     nameTextView.setText("이름: " + user.getName());
@@ -80,6 +81,7 @@ public class SettingsActivity extends AppCompatActivity {
                     genderTextView.setText("성별: " + user.getGender());
                     ageTextView.setText("나이: " + user.getAge());
                     phoneNumberTextView.setText("핸드폰 번호: " + user.getPhoneNumber());
+                    addressTextView.setText("주소: "+user.getAddress());
                 } else {
                     Toast.makeText(SettingsActivity.this, "사용자 정보를 로드하는 데 문제가 발생했습니다.", Toast.LENGTH_SHORT).show();
 

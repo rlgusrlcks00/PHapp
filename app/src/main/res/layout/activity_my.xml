@@ -6,10 +6,77 @@
     android:layout_height="match_parent"
     tools:context=".MyActivity">
 
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="118dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="372dp"
+        android:src="@drawable/ic_ph_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/weight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_marginTop="120dp"
+        android:text="몸무게 : "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_marginTop="150dp"
+        android:text="키 : "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_marginTop="180dp"
+        android:text="나이 : "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/sex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_marginTop="210dp"
+        android:text="성별 : "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/muscle_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_marginTop="240dp"
+        android:text="근육량 : "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/fat_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_marginTop="270dp"
+        android:text="체지방률 : "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="500dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,7 +84,7 @@
         app:layout_constraintVertical_bias="0.235">
 
 
-        <TextView
+ <!--       <TextView
 
             android:textSize="30dp"
             android:id="@+id/name"
@@ -27,10 +94,10 @@
             android:background="@drawable/layout_border"
             android:layout_marginTop="15dp"
 
-            android:text="이름 : " />
+            android:text="이름 : " />-->
 
 
-        <TextView
+<!--        <TextView
 
             android:textSize="30dp"
             android:id="@+id/age"
@@ -52,9 +119,9 @@
             android:background="@drawable/layout_border"
             android:layout_marginTop="15dp"
 
-            android:text="성별 : " />
+            android:text="성별 : " />-->
 
-        <TextView
+        <EditText
 
             android:textSize="30dp"
             android:id="@+id/muscle"
@@ -64,9 +131,9 @@
             android:background="@drawable/layout_border"
             android:layout_marginTop="15dp"
 
-            android:text="근육량 : " />
+            android:hint="근육량 : " />
 
-        <TextView
+        <EditText
 
             android:textSize="30dp"
             android:id="@+id/fat_weight"
@@ -76,11 +143,11 @@
             android:background="@drawable/layout_border"
             android:layout_marginTop="15dp"
 
-            android:text="체지방률 : " />
+            android:hint="체지방률 : " />
 
         <Button
             android:onClick="bbb"
-            android:id="@+id/btnadd"
+            android:id="@+id/inbody_update_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -97,7 +164,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="마이 페이지"
+        android:text="인바디 등록"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

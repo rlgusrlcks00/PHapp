@@ -7,6 +7,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 
 public class PostDetailsActivity extends AppCompatActivity {
     private TextView titleTextView;
@@ -52,13 +56,29 @@ public class PostDetailsActivity extends AppCompatActivity {
         AppExecutors.getInstance().diskIO().execute(() -> {
             Post post = db.PostDao().getPostById(postId);
 
-            runOnUiThread(() -> {
-                // 게시글 내용 표시
-                titleTextView.setText(post.getTitle());
-                contentTextView.setText(post.getContent());
-                authorTextView.setText(String.valueOf(post.getUserID()));
-                timestampTextView.setText(post.getDate());
-            });
+            if (post != null) {
+                User user = db.UserDao().getUserById(post.getUserID());
+
+                runOnUiThread(() -> {
+                    // 게시글 내용 표시
+                    titleTextView.setText("제목: "+post.getTitle());
+                    contentTextView.setText("내용: "+post.getContent());
+
+                    if (user != null) {
+                        authorTextView.setText("작성자: "+user.getEmail());
+                    } else {
+                        authorTextView.setText("Unknown User");
+                    }
+
+                    // timestamp to human-readable date
+                    long timestamp = Long.parseLong(post.getDate());
+                    Date date = new Date(timestamp);
+                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+                    String formattedDate = formatter.format(date);
+
+                    timestampTextView.setText("작성날짜: "+formattedDate);
+                });
+            }
         });
     }
 }

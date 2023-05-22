@@ -38,5 +38,7 @@ public interface UserDAO {
     @Query("SELECT * FROM User WHERE User_id = :userId")
     LiveData<User> getUserByIdL(int userId);
 
+    @Query("UPDATE User SET muscle_mass = :muscleMass, body_fat_percentage = :bodyFat WHERE email = :email")
+    int updateInbodyInfo(String email, String muscleMass, String bodyFat);
 
 }
