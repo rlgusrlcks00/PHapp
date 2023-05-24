@@ -41,4 +41,7 @@ public interface UserDAO {
     @Query("UPDATE User SET muscle_mass = :muscleMass, body_fat_percentage = :bodyFat WHERE email = :email")
     int updateInbodyInfo(String email, String muscleMass, String bodyFat);
 
+    @Query("SELECT User_id FROM User WHERE email = :email")
+    int findUserIdByEmail(String email);
+
 }

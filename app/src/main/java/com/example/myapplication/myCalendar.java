@@ -10,7 +10,7 @@ import static androidx.room.ForeignKey.CASCADE;
         parentColumns = "User_id",
         childColumns = "user_ID",
         onDelete = CASCADE))
-public class Calendar {
+public class myCalendar {
     @PrimaryKey(autoGenerate = true)
     public int data_ID=0;
 

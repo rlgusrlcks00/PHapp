@@ -10,14 +10,20 @@ import androidx.room.Update;
 @Dao
 public interface CalendarDAO {
     @Insert
-    void setInsertCalendar(Calendar calendar);
+    void setInsertCalendar(myCalendar calendar);
 
     @Update
-    void setUpdateCalendar(Calendar calendar);
+    void setUpdateCalendar(myCalendar calendar);
 
     @Delete
-    void setDeleteCalendar(Calendar calendar);
+    void setDeleteCalendar(myCalendar calendar);
 
-    @Query("SELECT * FROM Calendar")
-    List<Calendar> getCalendarAll();
+    @Query("SELECT * FROM myCalendar")
+    List<myCalendar> getCalendarAll();
+    @Query("SELECT * FROM myCalendar WHERE date = :selectedDate AND user_id = :userId")
+    List<myCalendar> getExerciseByDateAndUserId(String selectedDate, int userId);
+
+    @Query("SELECT * FROM myCalendar WHERE data_ID = :exerciseId")
+    myCalendar getExerciseById(int exerciseId);
+
 }

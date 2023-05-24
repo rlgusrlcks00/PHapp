@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase;
 import android.content.Context;
 import androidx.room.Room;
 
-@Database(entities = {User.class, Calendar.class, Post.class, Comment.class}, version = 8)
+@Database(entities = {User.class, myCalendar.class, Post.class, Comment.class}, version = 9)
 public abstract class PHDatabase extends RoomDatabase {
 
     private static PHDatabase instance;

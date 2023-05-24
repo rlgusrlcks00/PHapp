@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <CalendarView
+        android:id="@+id/calendar_View"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/CalendarDayBackground" />
+
+
+    <TextView
+        android:id="@+id/textViewDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/editTextExerciseType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="운동 유형 입력" />
+
+    <EditText
+        android:id="@+id/editTextExerciseTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="운동 시간 입력(분 단위)"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF914D"
+        android:textSize="20dp"
+        android:text="저장"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/detail_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF914D"
+
+        android:text="보기"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/update_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF914D"
+
+        android:text="수정"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/delete_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF914D"
+
+        android:text="삭제"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/back_button_calendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF914D"
+        android:text="뒤로"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+</LinearLayout>

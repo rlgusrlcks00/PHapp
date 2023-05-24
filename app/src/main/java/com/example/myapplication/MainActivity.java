@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     //버튼변수선언
     private ImageButton menuButton, alarmButton, settingsButton;
-    private Button myButton,analyButton, communityButton;
+    private Button myButton,analyButton, communityButton, calendarButton, dietButton, workoutButton;
     private UserDAO mUserDao;
 
 
@@ -27,20 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-/*
-        UserDatabase database= Room.databaseBuilder(getApplicationContext(), UserDatabase.class, "PH_db")
-                .fallbackToDestructiveMigration() //스키마 버전 변경 가능
-                .allowMainThreadQueries() //메인 스레드에서 DB에 IO를 가능하게 함
-                .build();
-        mUserDao=database.UserDao(); //인터페이스 객체 할당
-        //데이터 삽입
-        User user= new User();
-        user.setName("kichan");
-        user.setAge("25");
-        user.setPhoneNumber("01048559646");
 
-        mUserDao.setInsertUser(user);
-*/
 
         //버튼 종속성 설정
         menuButton = findViewById(R.id.menu_button);
@@ -48,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         myButton=findViewById(R.id.button_my);
         communityButton=findViewById(R.id.communityBtn);
         analyButton=findViewById(R.id.button_analysis);
+        calendarButton=findViewById(R.id.calendar_Button);
+        dietButton = findViewById(R.id.button_diet);
+        workoutButton = findViewById(R.id.button_workout);
 
 
         menuButton.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +67,19 @@ public class MainActivity extends AppCompatActivity {
                 //MY화면 연결
             }
         });
+
+
+
+        calendarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
         communityButton.setOnClickListener(new View.OnClickListener() {
             //community 버튼 기능
             @Override
@@ -94,7 +97,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        dietButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(MainActivity.this, DietListActivity.class);
+                startActivity(intent);
+            }
+        });
 
+        workoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, WorkoutListActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 

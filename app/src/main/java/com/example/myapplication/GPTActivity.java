@@ -150,7 +150,7 @@ public class GPTActivity extends AppCompatActivity {
                             JSONObject choice = jsonArray.getJSONObject(0);
                             JSONObject message = choice.getJSONObject("message");
                             String content = message.getString("content").trim();
-                            showToast("요청은 성공했어");
+                            showToast("요청 성공");
                             runOnUiThread(() -> {
                                 TextView recommendationTextView = findViewById(R.id.text_recommendation);
                                 recommendationTextView.setText("운동 추천: " + content);

@@ -40,14 +40,43 @@ public class SettingsActivity extends AppCompatActivity {
 
         backButton = findViewById(R.id.back_button_settings);
         Button logoutButton = findViewById(R.id.logout_button);
+        Button editProfileButton = findViewById(R.id.edit_profile_button);
+        Button changePWButton = findViewById(R.id.change_password_button);
+        Button privacyPolicyButton = findViewById(R.id.privacy_policy_button);
+
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //메인화면으로 되돌아가는 기능
+                Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
+                startActivity(intent);
                 finish();
             }
         });
+
+        privacyPolicyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SettingsActivity.this, PrivacyPolicyActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        changePWButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SettingsActivity.this, ChangePasswordActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
+
+
+
 
         sharedPreferencesHelper = new SharedPreferencesHelper(this);
 
@@ -90,6 +119,17 @@ public class SettingsActivity extends AppCompatActivity {
             });
         });
 
+        editProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // EditProfileActivity로 이동하는 인텐트 생성
+                Intent editProfileIntent = new Intent(SettingsActivity.this, EditProfileActivity.class);
+                // 현재 로그인한 사용자의 이메일 정보를 인텐트에 추가
+                editProfileIntent.putExtra("userEmail", loggedInUserEmail);
+                // EditProfileActivity로 이동
+                startActivity(editProfileIntent);
+            }
+        });
 
 
         logoutButton.setOnClickListener(new View.OnClickListener() {//로그아웃
