@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // 메뉴 버튼 기능 구현
+                Intent intent = new Intent(MainActivity.this, MenunActivity.class);
+                startActivity(intent);
             }
         });
 
