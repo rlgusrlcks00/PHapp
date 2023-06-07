@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 선택되었을 때의 배경 -->
+    <item android:state_activated="true" android:drawable="@color/colorAccent" />
+    <!-- 기록된 날짜의 배경 -->
+    <item android:id="@+id/recorded_background" android:drawable="@color/colorRecorded" />
+    <!-- 기본 배경 -->
+    <item android:drawable="@android:color/transparent" />
+
+
+</selector>

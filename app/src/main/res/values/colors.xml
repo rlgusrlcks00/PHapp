@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="orange">#FF9800</color>
+    <!-- 기록된 날짜의 배경색 -->
+    <color name="colorRecorded">#FFC107</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorCalendarDayRecordedBackground">#FF0000</color>
+
+    <color name="selectedDateBackground">#FF914D</color>
+
+</resources>

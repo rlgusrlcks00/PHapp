@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- 앱 테마 설정 -->
+    </style>
+
+    <style name="CalendarDayStyle" parent="@android:style/TextAppearance.DeviceDefault.Widget.TextView.SpinnerItem">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:background">@drawable/calendar_day_background</item>
+    </style>
+
+    <style name="CalendarDayBackground">
+        <item name="android:activatedBackgroundIndicator">@drawable/calendar_day_background</item>
+    </style>
+
+</resources>
